@@ -1,12 +1,12 @@
-const int trigPin = 2; // Pin Trigger Sensor
-const int echoPin = 3; // Pin Echo Sensor
-const int buzzerPin = 4; // Pin Buzzer
-const int greenPin = 5; // Pin para el LED verde (recipiente no lleno)
-const int redPin = 6; // Pin para el LED rojo (recipiente lleno)
+const int trigPin = 2; // Pin Trigger Sensor                            ** AMARILLO **
+const int echoPin = 3; // Pin Echo Sensor                               ** AZUL **
+const int greenPin = 4; // Pin para el LED verde (recipiente no lleno)  ** VERDE **
+const int redPin = 5; // Pin para el LED rojo (recipiente lleno)        ** NARANJO **
+const int buzzerPin = 6; // Pin Buzzer                                  ** BLANCO **
 
 // Configuración de distancias (en centímetros)
 const float alturaTotal = 9.50; // Altura total del recipiente
-const float umbralLleno = 2.0; // Distancia mínima para considerar lleno
+const float umbralLleno = 2.50; // Distancia mínima para considerar lleno
 
 void setup() {
   Serial.begin(9600);
