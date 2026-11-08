@@ -1,4 +1,4 @@
-# 💧 Arduino Water Level Monitor (Versión 2.1)
+# 💧 Arduino Water Level Monitor (Versión 1.1)
 
 Sistema automatizado de monitoreo y control de nivel de agua en recipientes mediante tecnología ultrasónica, desarrollado para la plataforma Arduino. Esta versión incluye un indicador visual dinámico mediante un semáforo LED de dos colores, alertas sonoras ante llenado y un **sistema de detección de anomalías o lecturas erróneas**.
 
