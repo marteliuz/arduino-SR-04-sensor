@@ -1,8 +1,8 @@
-const int trigPin = 2; // Pin Trigger Sensor                            ** AMARILLO **
-const int echoPin = 3; // Pin Echo Sensor                               ** AZUL **
-const int greenPin = 4; // Pin para el LED verde (recipiente no lleno)  ** VERDE **
-const int redPin = 5; // Pin para el LED rojo (recipiente lleno)        ** NARANJO **
-const int buzzerPin = 6; // Pin Buzzer                                  ** BLANCO **
+const int trigPin   = 2; // Pin Trigger Sensor                           ** AMARILLO **
+const int echoPin   = 3; // Pin Echo Sensor                              ** AZUL **
+const int greenPin  = 4; // Pin para el LED verde (recipiente no lleno)  ** VERDE **
+const int redPin    = 5; // Pin para el LED rojo (recipiente lleno)      ** NARANJO **
+const int buzzerPin = 6; // Pin Buzzer                                   ** BLANCO **
 
 // Configuración de distancias (en centímetros)
 const float alturaTotal = 9.50;     // Altura total del recipiente
