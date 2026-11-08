@@ -1,6 +1,6 @@
-# 💧 Arduino Water Level Monitor (Versión 2)
+# 💧 Arduino Water Level Monitor (Versión 2.1)
 
-Sistema automatizado de monitoreo y control de nivel de agua en recipientes mediante tecnología ultrasónica, desarrollado para la plataforma Arduino. Esta versión incluye un indicador visual dinámico mediante un semáforo LED de dos colores y alertas sonoras intermitentes al alcanzar el nivel máximo de llenado.
+Sistema automatizado de monitoreo y control de nivel de agua en recipientes mediante tecnología ultrasónica, desarrollado para la plataforma Arduino. Esta versión incluye un indicador visual dinámico mediante un semáforo LED de dos colores, alertas sonoras ante llenado y un **sistema de detección de anomalías o lecturas erróneas**.
 
 ---
 
@@ -8,31 +8,36 @@ Sistema automatizado de monitoreo y control de nivel de agua en recipientes medi
 
 * **Medición sin contacto:** Utiliza el sensor ultrasónico **HC-SR04** para calcular en tiempo real la distancia hacia la superficie del agua.
 * **Indicador Visual Inteligente (Semáforo):**
-  * 🟢 **LED Verde Fijo:** El recipiente está vacío o por debajo del umbral de inicio.
-  * 🟢 **LED Verde Parpadeante:** Proceso de llenado activo (el nivel de agua está subiendo).
-  * 🔴 **LED Rojo Fijo:** El recipiente ha alcanzado el límite máximo de capacidad.
-* **Alerta Sonora de Precisión:** Buzzer activo programado para emitir **tres pitidos breves** como notificación sonora al completarse el llenado.
-* **Telemetría en Tiempo Real:** Envío de mediciones continuas de distancia (en cm) a través del Monitor Serie para fácil depuración y seguimiento.
+  * 🟢 **LED Verde Fijo:** El recipiente está vacío o en proceso de llenado dentro de parámetros normales.
+  * 🔴 **LED Rojo Fijo:** El recipiente ha alcanzado el límite máximo de capacidad (`<= 2.50 cm`).
+  * ⚡ **Doble Parpadeo Rápido (Verde y Rojo):** Alerta visual de error ante mediciones anómalas (`<= 0.0 cm` o lecturas desproporcionadas por encima del rango del recipiente).
+* **Alerta Sonora de Precisión:** Buzzer activo programado para encenderse de forma constante al confirmarse el llenado completo del recipiente.
+* **Telemetría en Tiempo Real:** Envío continuo de datos métricos de distancia en centímetros hacia el Monitor Serie para facilitar depuración y monitoreo.
 
 ---
 
 ## 🛠️ Hardware y Conexiones
 
-| Componente | Pin Arduino | Función |
-| :--- | :--- | :--- |
-| **Sensor HC-SR04 (Trig)** | Pin 2 | Salida de pulso ultrasónico |
-| **Sensor HC-SR04 (Echo)** | Pin 3 | Entrada de recepción de eco |
-| **Buzzer Activo** | Pin 4 | Alerta sonora de llenado |
-| **LED Verde** | Pin 5 | Indicador de estado (Vacío / Llenándose) |
-| **LED Rojo** | Pin 6 | Indicador de estado (Lleno) |
+| Componente | Pin Arduino | Color de Cable | Función |
+| :--- | :--- | :--- | :--- |
+| **Sensor HC-SR04 (Trig)** | Pin 2 | Amarillo | Salida de pulso ultrasónico |
+| **Sensor HC-SR04 (Echo)** | Pin 3 | Azul | Entrada de recepción de eco |
+| **LED Verde** | Pin 4 | Verde | Indicador de estado normal (no lleno) |
+| **LED Rojo** | Pin 5 | Naranjo | Indicador de alerta (lleno) |
+| **Buzzer Activo** | Pin 6 | Blanco | Alerta sonora de llenado |
 
 ---
 
 ## 📏 Calibración y Umbrales
 
-El sistema está configurado para adaptarse a un recipiente de **9.5 cm** de altura útil:
+El sistema está configurado para un recipiente con una profundidad de **9.50 cm**:
 
 * `alturaTotal = 9.50 cm` — Límite de referencia para el recipiente vacío.
-* `umbralVacio = 8.50 cm` — Punto de transición donde inicia el indicador de llenado activo.
-* `umbralLleno = 2.00 cm` — Nivel crítico para activar la alerta sonoro-visual de recipiente lleno.
+* `umbralLleno = 2.50 cm` — Distancia crítica para activar la alerta sonoro-visual de recipiente lleno.
+* `margenError = 5.00 cm` — Tolerancia adicional para identificar fallos de medición o lecturas fuera de rango.
 
+---
+
+## 👨‍💻 Autor
+
+Proyecto de electrónica y automatización desarrollado con Arduino.
